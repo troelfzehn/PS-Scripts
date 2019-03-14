@@ -2,7 +2,7 @@
             Write-Log -Message '[Start]'
                                     Write-Log -Message "Prüfung auf bereits installierte SPK-Fonts"
             $winfonts = (Get-Childitem "C:\Windows\Fonts" -Filter *.ttf).Name
-            $spkfonts = (Get-Childitem "C:\temp\LBBW_SYS_SPKFONTS_1.0.0.0_XX_220900_ALL_X96_01_01\Paket\Files\TTFs" -Filter *.ttf).Name
+            $spkfonts = (Get-Childitem "C:\temp\TTFs" -Filter *.ttf).Name
 
             foreach ($font in $spkfonts) {
                 If ($winfonts -notcontains $font) {
