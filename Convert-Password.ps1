@@ -20,7 +20,7 @@ $Key = Get-Content $KeyFile
 $PlainPassword = Get-Content $PasswordFile | ConvertTo-SecureString -Key $key
 
 #$PlainPassword now has the following value: System.Security.SecureString
-
+#It can be used in this form
 #We can also use the password-file for creating a PSCredential-Object (of course $User has to be specified for this):
 $MyCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, (Get-Content $PasswordFile | ConvertTo-SecureString -Key $key)
 
