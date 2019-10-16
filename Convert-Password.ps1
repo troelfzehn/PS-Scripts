@@ -1,4 +1,4 @@
-#First of all we need to create a Key-File 
+#First of all we need to create a Key-File, this can be done in any Powershell-Session
 $KeyFile = "C:\temp\AES.key"
 $Key = New-Object Byte[] 16   # You can use 16, 24, or 32 for AES
 [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($Key)
@@ -30,3 +30,9 @@ $UnsecurePassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($B
 
 #an other, thinner way for getting the unsecure Plain Password:
 [System.Net.NetworkCredential]::new("", $PlainPassword).Password
+
+<#
+IMPORTANT:
+Be sure to protect that AES key as if it were your password. 
+Anybody who can read the AES key can decrypt anything that was encrypted with it.
+#>
